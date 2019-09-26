@@ -6,6 +6,7 @@ import (
 	"sync"
 
 	// Import the generated protobuf code
+	micro "github.com/micro/go-micro"
 	pb "github.com/vbrown608/shippy/consignment-service/proto/consignment"
 )
 
@@ -78,10 +79,7 @@ func main() {
 
 	srv.Init()
 
-	// Register our service with the gRPC server, this will tie our
-	// implementation into the auto-generated interface code for our
-	// protobuf definition.
-	pb.RegisterShippingServiceServer(srv.Server(), &service{repo})
+	pb.RegisterShippingServiceHandler(srv.Server(), &service{repo})
 
 	if err := srv.Run(); err != nil {
 		fmt.Println(err)

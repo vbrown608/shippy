@@ -1,11 +1,9 @@
-module github.com/vbrown608/shippy
+module github.com/vbrown608/shippy/consignment-service
 
-go 1.12
+go 1.13
 
 require (
 	github.com/golang/protobuf v1.3.2
 	github.com/micro/go-micro v1.10.0
-	github.com/micro/protobuf v0.0.0-20180321161605-ebd3be6d4fdb // indirect
-	golang.org/x/net v0.0.0-20190724013045-ca1201d0de80
-	google.golang.org/grpc v1.24.0
+	golang.org/x/net v0.0.0-20190926025831-c00fd9afed17
 )
