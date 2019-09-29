@@ -6,9 +6,11 @@ RUN apk --no-cache add git
 
 WORKDIR /app/shippy-service-consignment
 
-COPY . .
-
+COPY go.mod .
+COPY go.sum .
 RUN go mod download
+
+COPY . .
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o shippy-service-consignment
 
 

@@ -4,11 +4,13 @@ FROM golang:alpine as builder
 
 RUN apk --no-cache add git
 
-WORKDIR /app/shippy-cli-consigment
+WORKDIR /app/shippy-cli-consignment
+
+COPY go.mod .
+COPY go.sum .
+RUN go mod download
 
 COPY . .
-
-RUN go mod download
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o shippy-cli-consignment
 
 
@@ -19,6 +21,6 @@ RUN apk --no-cache add ca-certificates
 RUN mkdir /app
 WORKDIR /app
 
-COPY --from=builder /app/shippy-service-consignment/shippy-cli-consignment .
+COPY --from=builder /app/shippy-cli-consignment/shippy-cli-consignment .
 
 CMD ["./shippy-cli-consignment"]
