@@ -256,6 +256,10 @@ github.com/stretchr/testify v1.3.0/go.mod h1:M5WIy9Dh21IEIfnGCwXGc5bZfKNJtfHm1UV
 github.com/technoweenie/multipartstreamer v1.0.1/go.mod h1:jNVxdtShOxzAsukZwTSw6MDx5eUJoiEBsSvzDU9uzog=
 github.com/tv42/httpunix v0.0.0-20150427012821-b75d8614f926/go.mod h1:9ESjWnEqriFuLhtthL60Sar/7RFoluCcXsuvEwTV5KM=
 github.com/vbrown608/shippy v0.0.0-20190926202927-ad28b3af8b9a h1:47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
+github.com/vbrown608/shippy v0.0.0-20190929195233-bc57c29d75fd h1:47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
+github.com/vbrown608/shippy/consignment-service v0.0.0-20190927025220-2bb11c2474ac/go.mod h1:GbZ3sdp5ntrNXjkMg1rwZlNB4WaFlgLgiMhwknhBbDc=
+github.com/vbrown608/shippy/vessel-service v0.0.0-20190929195233-bc57c29d75fd h1:uvOpC3fpQpNnq+2JVvNxMd0j7oHE9ZoI8e8nn9tb7ps=
+github.com/vbrown608/shippy/vessel-service v0.0.0-20190929195233-bc57c29d75fd/go.mod h1:muMW8xEHtXGHSA9QvYiY4WkIqeZANXNc0AWrg2HPSaI=
 github.com/xanzy/ssh-agent v0.2.1/go.mod h1:mLlQY/MoOhWBj+gOGMQkOeiEvkx+8pJSI+0Bx9h2kr4=
 go.opencensus.io v0.21.0/go.mod h1:mSImk1erAIZhrmZN+AvHh14ztQfjbGwt4TtuofqLduU=
 go.opencensus.io v0.22.0/go.mod h1:+kGneAE2xo2IficOXnaByMWTGM9T73dGwxeWcUqIpI8=
