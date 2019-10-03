@@ -10,6 +10,7 @@ import (
 
 type Repository interface {
 	FindAvailable(*pb.Specification) (*pb.Vessel, error)
+	Create(*pb.Vessel) error
 }
 
 type MongoRepository struct {
@@ -26,4 +27,9 @@ func (repo *MongoRepository) FindAvailable(spec *pb.Specification) (*pb.Vessel, 
 		"maxweight": bson.M{"$gte": spec.MaxWeight},
 	}).Decode(vessel)
 	return vessel, err
+}
+
+func (repo *MongoRepository) Create(vessel *pb.Vessel) error {
+	_, err := repo.collection.InsertOne(context.Background(), vessel)
+	return err
 }

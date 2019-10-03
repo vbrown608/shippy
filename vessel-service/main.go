@@ -15,11 +15,6 @@ const (
 )
 
 func main() {
-	// TODO: write to respository
-	// vessels := []*pb.Vessel{
-	// 	&pb.Vessel{Id: "vessel001", Name: "Boaty McBoatface", MaxWeight: 200000, Capacity: 500},
-	// }
-
 	srv := micro.NewService(
 		micro.Name("shippy.service.vessel"),
 	)
@@ -38,6 +33,8 @@ func main() {
 
 	vesselCollection := client.Database("shippy").Collection("vessels")
 	repository := &MongoRepository{vesselCollection}
+	// Seed repo with a vessel.
+	repository.Create(&pb.Vessel{Id: "vessel001", Name: "Boaty McBoatface", MaxWeight: 200000, Capacity: 500})
 	h := &handler{repository}
 
 	pb.RegisterVesselServiceHandler(srv.Server(), h)
