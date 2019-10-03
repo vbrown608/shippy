@@ -22,5 +22,6 @@ RUN mkdir /app
 WORKDIR /app
 
 COPY --from=builder /app/shippy-cli-consignment/shippy-cli-consignment .
+COPY consignment.json .
 
 CMD ["./shippy-cli-consignment"]
