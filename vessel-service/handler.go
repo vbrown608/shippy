@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"log"
 
 	pb "github.com/vbrown608/shippy/vessel-service/proto/vessel"
 )
@@ -12,6 +13,7 @@ type handler struct {
 }
 
 func (h *handler) FindAvailable(ctx context.Context, req *pb.Specification, res *pb.Response) error {
+	log.Printf("Finding available vessles matching %+v", *req)
 
 	// Find the next available vessel
 	vessel, err := h.repo.FindAvailable(req)

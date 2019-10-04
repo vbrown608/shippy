@@ -21,7 +21,8 @@ type MongoRepository struct {
 // if capacity and max weight are below a vessels capacity and max weight,
 // then return that vessel.
 func (repo *MongoRepository) FindAvailable(spec *pb.Specification) (*pb.Vessel, error) {
-	var vessel *pb.Vessel
+	// var vessel *pb.Vessel
+	vessel := &pb.Vessel{}
 	err := repo.collection.FindOne(context.Background(), bson.M{
 		"capacity":  bson.M{"$gte": spec.Capacity},
 		"maxweight": bson.M{"$gte": spec.MaxWeight},

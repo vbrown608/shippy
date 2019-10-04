@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"time"
 
 	"context"
 
@@ -28,6 +29,7 @@ func parseFile(file string) (*pb.Consignment, error) {
 }
 
 func main() {
+	time.Sleep(5 * time.Second)
 	service := micro.NewService(micro.Name("shippy.cli.consignment"))
 	service.Init()
 

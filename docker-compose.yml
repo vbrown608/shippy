@@ -5,6 +5,9 @@ services:
 
   shippy-cli-consignment:
     build: ./consignment-cli
+    depends_on:
+      - shippy-service-consignment
+      - shippy-service-vessel
 
   shippy-service-consignment:
     build: ./consignment-service
@@ -13,6 +16,8 @@ services:
     environment:
       MICRO_ADDRESS: ":50051"
       DB_HOST: "datastore:27017"
+    depends_on:
+      - datastore
 
   shippy-service-vessel:
     build: ./vessel-service
@@ -21,3 +26,10 @@ services:
     environment:
       MICRO_ADDRESS: ":50051"
       DB_HOST: "datastore:27017"
+    depends_on:
+      - datastore
+
+  datastore:
+    image: mongo
+    ports:
+      - 27017:27017

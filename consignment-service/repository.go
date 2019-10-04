@@ -2,9 +2,11 @@ package main
 
 import (
 	"context"
+	"log"
 
 	pb "github.com/vbrown608/shippy/consignment-service/proto/consignment"
 	"go.mongodb.org/mongo-driver/mongo"
+	"gopkg.in/mgo.v2/bson"
 )
 
 type repository interface {
@@ -25,10 +27,15 @@ func (repository *MongoRepository) Create(consignment *pb.Consignment) error {
 
 // GetAll -
 func (respository *MongoRepository) GetAll() ([]*pb.Consignment, error) {
-	cur, err := respository.collection.Find(context.Background(), nil, nil)
+	cur, err := respository.collection.Find(context.Background(), bson.M{})
+	if err != nil {
+		log.Println("Failed to Find on consignments collection")
+		return nil, err
+	}
 	var consignments []*pb.Consignment
 	for cur.Next(context.Background()) {
-		var consignment *pb.Consignment
+		// var consignment *pb.Consignment
+		consignment := &pb.Consignment{}
 		if err := cur.Decode(&consignment); err != nil {
 			return nil, err
 		}
